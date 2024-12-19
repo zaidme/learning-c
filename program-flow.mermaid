@@ -1,0 +1,17 @@
+flowchart TD
+    A[Start Program] --> B[Load Library from File]
+    B --> C[Display Menu]
+    C --> D{User Choice}
+    D -->|1| E[Add Book]
+    D -->|2| F[Display Books]
+    D -->|3| G[Search Book]
+    D -->|4| H[Remove Book]
+    D -->|5| I[Borrow/Return]
+    D -->|6| J[Save and Exit]
+    E --> C
+    F --> C
+    G --> C
+    H --> C
+    I --> C
+    J --> K[Save to File]
+    K --> L[End Program]

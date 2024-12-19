@@ -1,0 +1,37 @@
+classDiagram
+    class Book {
+        +char title[100]
+        +char author[100]
+        +int year
+        +int is_borrowed
+        +Book* next
+    }
+
+    class LibraryManager {
+        +Book* head
+        +add_book(Book* head, char* title, char* author, int year) Book*
+        +display_books(Book* head) void
+        +remove_book(Book* head, char* title) Book*
+        +search_book(Book* head, char* title) Book*
+        +borrow_book(Book* head, char* title) bool
+        +return_book(Book* head, char* title) bool
+        +save_to_file(Book* head, char* filename) void
+        +load_from_file(char* filename) Book*
+    }
+
+    class FileHandler {
+        +save_library(Book* head, char* filename) void
+        +load_library(char* filename) Book*
+    }
+
+    class UserInterface {
+        +display_menu() void
+        +get_user_choice() int
+        +get_book_details() Book
+        +show_error(char* message) void
+        +show_success(char* message) void
+    }
+
+    LibraryManager --> Book : manages
+    LibraryManager --> FileHandler : uses
+    LibraryManager --> UserInterface : uses

@@ -23,6 +23,11 @@ int connect_books(struct Book* book1, struct Book* book2, int weight){
 
     book1->connections[book1->connection_count].book = book2;
     book2->connections[book2->connection_count].book = book1;
+
+    book1->connection_count++;    
+    book2->connection_count++;    
+
+    return 0; 
 };
 
 void display_connections(const struct Book* book){
@@ -35,6 +40,7 @@ void display_connections(const struct Book* book){
     book->connections[i].book->title,
     book->connections[i].book->author,
     book->connections[i].weight);
+
 
     
     }
